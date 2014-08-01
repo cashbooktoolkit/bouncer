@@ -1,6 +1,8 @@
 ## Bouncer
 
-An OAuth2 based authentication server/relay.  I say relay because it delegates the actual autentication calls to a separate webservice. It's written in #golang and uses the Osin libary for its OAuth2 implementation.
+An OAuth2 based authentication server/relay.  I say relay because it delegates the actual autentication calls to a separate webservice. It's written in #golang and uses the Osin libary for its OAuth2 implementation.  
+
+You will need to write a simple web service that does the lookup and password verification.  I've written an example you can use as a reference: [bouncer example backend](https://github.com/sourdoughlabs/bouncer-example-backend
 
 The delegated webservice can be implented in whatever programming language best suits the implementation of the athentication lookup and verify operations.
 
