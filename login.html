@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>The Bouncer Login Service</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/bootstrap/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/bootstrap/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <h2 style="text-align:center;margin-top:40px;">Please sign in</h2>
+
+      {{ if .Error }}
+        <div class="alert alert-block">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <h4>We're sorry, there was a problem.</h4>
+          <p style="margin-left:15px;">{{ .Error }}</p>
+          <p>Please try again.</p>
+        </div>
+      {{ end }}
+          
+
+      <div class="row-fluid">
+        <div class="span6" style="text-align:center;">
+          <h4 style="margin:30px;">Let's just see if you're on the list...</h4>
+          <img src="assets/bouncer.png" width="300px"/>
+        </div>
+
+        <div class="span6" style="padding-top:70px;">
+          
+          <div class="well">
+            <form method='post' noValidate='noValidate' class="form-horizontal" action="{{.PostUrl}}">
+
+              <div class="control-group">
+                <label class="control-label" for="username">Account Number</label>
+                <div class="controls">
+                  <input type="text" id="login" name="login" placeholder="Account Number">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="password">PAC</label>
+                <div class="controls">
+                  <input type="password" id="password" name="password" placeholder="Personal Access Code">
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <button type="submit" class="btn" >Sign in</button>
+                </div>
+              </div>                                         
+            </form>                   
+          </div>
+        </div>
+      </div>
+
+      <div class="alert alert-block alert-success" style="margin-top:40px;">
+        <h4>Customize this page in any way you see fit.</h4>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/bootstrap/js/jquery-1.8.0.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
