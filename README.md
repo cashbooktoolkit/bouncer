@@ -6,7 +6,7 @@ You will need to write a simple web service that does the lookup and password ve
 
 The delegated webservice can be implented in whatever programming language best suits the implementation of the athentication lookup and verify operations.
 
-An omniauth compatible strategy is [omniauth compatible stratgey](https://github.com/sourdoughlabs/omniauth-bouncer) available as a Ruby Gem to simplify the development of Rails based applications.
+An [omniauth compatible stratgey](https://github.com/sourdoughlabs/omniauth-bouncer) is (will be) available as a Ruby Gem to simplify the development of Rails based applications.
 
 ## Minimal dependencies
 
