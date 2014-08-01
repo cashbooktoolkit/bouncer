@@ -1,14 +1,10 @@
 ## Bouncer
 
-An OAuth2 based authentication server/relay.  I say relay because it delegates the actual
-autentication calls to a separate webservice. It's written in #golang and uses the Osin libary
-for its OAuth2 implementation.
+An OAuth2 based authentication server/relay.  I say relay because it delegates the actual autentication calls to a separate webservice. It's written in #golang and uses the Osin libary for its OAuth2 implementation.
 
-The delegated webservice can be implented in whatever programming language best suits the
-implementation of the athentication lookup and verify operations.
+The delegated webservice can be implented in whatever programming language best suits the implementation of the athentication lookup and verify operations.
 
-An omniauth compatible strategy is (will be) available as a Ruby Gem to simplify the development of
-Rails based applications.
+An omniauth compatible strategy is [omniauth compatible stratgey](https://github.com/sourdoughlabs/omniauth-bouncer) available as a Ruby Gem to simplify the development of Rails based applications.
 
 ## Minimal dependencies
 
@@ -21,6 +17,4 @@ These help reduce operational complexity and minimize the attack surface.
 
 ## Getting started
 
-The Login page is fully customisable.  Begin by copying login-sample.html to login.html and editing it as you see fit.
-CSS and javascript files may be placed into the assets folder.  The login.html file is a golang html/template and things 
-like the error reporting should be left alone, but feel free to style it.
+The Login page is fully customisable. CSS and javascript files may be placed into the assets folder.  The login.html file is a golang html/template and things like the error reporting should be left alone, but feel free to style it.
