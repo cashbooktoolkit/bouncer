@@ -1,6 +1,5 @@
-## Bouncer
 
-<img src="bouncer.png" height="200px"/>
+<img alt="Bouncer" src="bouncer.png" height="200px"/>
 
 An OAuth2 based authentication server/relay.  I say relay because it delegates the actual autentication calls to a separate webservice. It's written in #golang and uses the Osin libary for its OAuth2 implementation.  
 
