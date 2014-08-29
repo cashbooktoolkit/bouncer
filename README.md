@@ -1,6 +1,6 @@
 ## Bouncer
 
-![Image](../blob/master/bouncer.png?raw=true)
+![Image](master/bouncer.png?raw=true)
 
 An OAuth2 based authentication server/relay.  I say relay because it delegates the actual autentication calls to a separate webservice. It's written in #golang and uses the Osin libary for its OAuth2 implementation.  
 
