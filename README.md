@@ -7,7 +7,7 @@ I've written an example you can use as a reference: ( https://github.com/sourdou
 
 The delegated webservice can be implented in whatever programming language best suits the implementation of the athentication lookup and verify operations.
 
-https://github.com/sourdoughlabs/omniauth-bouncer is an omniauth to simplify the development of Rails based applications.
+https://github.com/sourdoughlabs/omniauth-bouncer is an omniauth compatible gem to simplify the development of Rails based applications.
 
 ## Minimal dependencies
 
