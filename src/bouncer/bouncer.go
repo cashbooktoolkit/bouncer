@@ -10,15 +10,15 @@ package main
 
 import (
 	"encoding/json"
-	"io/ioutil"
-	"os"
-	"fmt"
-	"log"
 	"flag"
-	"net/http"
-	"html/template"
-	"net/url"
+	"fmt"
 	"github.com/RangelReale/osin"
+	"html/template"
+	"io/ioutil"
+	"log"
+	"net/http"
+	"net/url"
+	"os"
 )
 
 func main() {
@@ -26,7 +26,7 @@ func main() {
 	port := flag.String("port", "14000", "Port number to listen on")
 	backend_url := flag.String("backend", "http://localhost:14001/authenticate", "Address of the authentication backend")
 
-    flag.Parse()
+	flag.Parse()
 
 	config := osin.NewServerConfig()
 	config.AllowGetAccessRequest = true
@@ -76,21 +76,20 @@ func main() {
 		osin.OutputJSON(resp, w, r)
 	})
 
-
 	fs := http.FileServer(http.Dir("assets"))
 	http.Handle("/assets/", http.StripPrefix("/assets/", fs))
 
-	http.ListenAndServe(":" + *port, nil)
+	http.ListenAndServe(":"+*port, nil)
 }
 
 type RemoteReponse struct {
-	Uid string
-	Error string
+	Uid     string
+	Error   string
 	Success bool
 }
 
 type PageContext struct {
-	Error string
+	Error   string
 	PostUrl string
 }
 
@@ -110,15 +109,15 @@ func HandleLoginPage(backend_url string, resp *osin.Response, ar *osin.Authorize
 		} else {
 			defer res.Body.Close()
 			body, err := ioutil.ReadAll(res.Body)
-			
+
 			var backend_response RemoteReponse
 			err = json.Unmarshal(body, &backend_response)
-			
+
 			if err != nil {
 				error_message = "Service is currently unavailable - Code: 002"
 				log.Printf("Error reading json %v", err)
 			}
-			
+
 			if backend_response.Success == true {
 				resp.Output["uid"] = backend_response.Uid
 				return true
@@ -128,7 +127,8 @@ func HandleLoginPage(backend_url string, resp *osin.Response, ar *osin.Authorize
 		}
 	}
 
-	post_url := fmt.Sprintf("/authorize?response_type=%s&client_id=%s&state=%s&redirect_uri=%s", ar.Type, ar.Client.Id, ar.State, url.QueryEscape(ar.RedirectUri))
+	post_url := fmt.Sprintf("/authorize?response_type=%s&client_id=%s&state=%s&redirect_uri=%s",
+		ar.Type, ar.Client.GetId(), ar.State, url.QueryEscape(ar.RedirectUri))
 
 	var t = template.Must(template.New("login.html").ParseFiles("login.html"))
 	t.Execute(w, &PageContext{Error: error_message, PostUrl: post_url})
@@ -140,14 +140,14 @@ func load_clients(storage *InMemoryStorage) {
 
 	file, e := ioutil.ReadFile("clients.json")
 
-    if e != nil {
-        fmt.Printf("File error: %v\n", e)
-        os.Exit(1)
-    }
+	if e != nil {
+		fmt.Printf("File error: %v\n", e)
+		os.Exit(1)
+	}
 
-	var clients []osin.Client
+	var clients []osin.DefaultClient
 	err := json.Unmarshal(file, &clients)
-	
+
 	if err != nil {
 		log.Printf("Error reading json %v", err)
 		os.Exit(1)

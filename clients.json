@@ -1,4 +1,3 @@
 [
-    {"Id": "11223344", "Secret": "aabbccddee", "RedirectUri": "http://localhost:3003/auth/bouncer/callback", "Name": "PFM"},
-    {"Id": "11223355", "Secret": "zzyyxxwwvvuu", "RedirectUri": "http://localhost:3010/auth/bouncer/callback", "Name": "Keepsafe"}
+    {"Id": "11223344", "Secret": "aabbccddee", "RedirectUri": "http://localhost:3003/auth/bouncer/callback", "Name": "PFM"}
 ]
